@@ -19,22 +19,18 @@ export class AppComponent {
   }
 
  initialOpenClose(treeIndex:number) {
-   console.log(treeIndex);
-   
   this.treeData[treeIndex].state.$initial = !this.treeData[treeIndex].state.$initial
-
-  
 }
 
 
-termsOpenClose(parentIndex:number, type) {
+termsOpenClose(parentIndex:number, termtype) {
 
-  if(type=='BT'){
+  if(termtype=='BT'){
 
 
     this.treeData[parentIndex].state.$termsrelation.$BT = !  this.treeData[parentIndex].state.$termsrelation.$BT
 
-  }else if(type=='NT'){
+  }else if(termtype=='NT'){
 
     this.treeData[parentIndex].state.$termsrelation.$NT = !this.treeData[parentIndex].state.$termsrelation.$NT
 

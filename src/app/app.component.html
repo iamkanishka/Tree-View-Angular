@@ -1,50 +1,52 @@
-
 <div style="margin-left: 10px;">
-<h3>Tree View in Angular</h3>
+  <h3>Tree View in Angular</h3>
 
-<div *ngFor="let parentitem of treeData;let i = index" >
+  <div *ngFor="let parentitem of treeData;let i = index">
 
-  <span  (click)="initialOpenClose(i)" style="cursor: pointer;" >
+    <span (click)="initialOpenClose(i)" style="cursor: pointer;">
 
-    <i [ngClass]="[parentitem.state.$initial ? 'bi bi-dash' : 'bi bi-plus']"></i>
-    <i  [ngClass]="[parentitem.state.$initial ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i> {{parentitem.formated_name}} </span>
- <ul *ngIf="parentitem.state.$initial" >
-    <li *ngFor="let childitem of parentitem.termsrelation;let childindex = index" >
-     <span  (click)="termsOpenClose(i,'BT')" style="cursor: pointer;" *ngIf="childitem.rel=='BT'"  >
+      <i [ngClass]="[parentitem.state.$initial ? 'bi bi-dash' : 'bi bi-plus']"></i>
+      <i [ngClass]="[parentitem.state.$initial ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i>
+      {{parentitem.formated_name}} </span>
+    <ul *ngIf="parentitem.state.$initial">
+      <li *ngFor="let childitem of parentitem.termsrelation;let childindex = index">
+        <span (click)="termsOpenClose(i,'BT')" style="cursor: pointer;" *ngIf="childitem.rel=='BT'">
 
-        <i [ngClass]="[parentitem.state.$termsrelation.$BT ? 'bi bi-dash' : 'bi bi-plus']"></i>
-        <i  [ngClass]="[parentitem.state.$termsrelation.$BT ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i> {{childitem.rel}} </span>
-   
-       
-          <ul *ngIf="parentitem.state.$initial&&parentitem.state.$termsrelation.$BT&&childitem.rel=='BT'">
+          <i [ngClass]="[parentitem.state.$termsrelation.$BT ? 'bi bi-dash' : 'bi bi-plus']"></i>
+          <i
+            [ngClass]="[parentitem.state.$termsrelation.$BT ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i>
+          {{childitem.rel}} </span>
 
-          <li *ngFor="let termschild of childitem.terms;let termsindex = index" >
-              
-            <span >
-                 <i class="bi bi-plus "></i>
-                 <i  class="bi bi-folder2 foldericons"></i>    {{termschild.formated_name}} </span>
+
+        <ul *ngIf="parentitem.state.$initial&&parentitem.state.$termsrelation.$BT&&childitem.rel=='BT'">
+
+          <li *ngFor="let termschild of childitem.terms;let termsindex = index">
+
+            <span>
+              <i class="bi bi-plus "></i>
+              <i class="bi bi-folder2 foldericons"></i> {{termschild.formated_name}} </span>
           </li>
-        </ul> 
+        </ul>
 
 
-        <span  (click)="termsOpenClose(i,childitem.rel)" style="cursor: pointer;"   *ngIf="childitem.rel=='NT'"   >
+        <span (click)="termsOpenClose(i,childitem.rel)" style="cursor: pointer;" *ngIf="childitem.rel=='NT'">
 
           <i [ngClass]="[parentitem.state.$termsrelation.$NT ? 'bi bi-dash' : 'bi bi-plus']"></i>
-          <i  [ngClass]="[parentitem.state.$termsrelation.$NT ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i> {{childitem.rel}} </span>
-        
-          <!-- <ul > -->
-            <ul *ngIf="parentitem.state.$initial&&parentitem.state.$termsrelation.$NT&&childitem.rel=='NT'" >
-            <li *ngFor="let nttermsChild of childitem.terms;let termsindex = index" >
-                
-              <span >
-                   <i class="bi bi-plus "></i>
-                   <i  class="bi bi-folder2 foldericons"></i>    {{nttermsChild.formated_name}} </span>
-            </li>
-          </ul>
-  
-    </li>     
-  
-  </ul>
-</div>
-</div>
+          <i
+            [ngClass]="[parentitem.state.$termsrelation.$NT ? 'bi bi-folder2-open foldericons' : 'bi bi-folder2 foldericons']"></i>
+          {{childitem.rel}} </span>
 
+        <ul *ngIf="parentitem.state.$initial&&parentitem.state.$termsrelation.$NT&&childitem.rel=='NT'">
+          <li *ngFor="let nttermsChild of childitem.terms;let termsindex = index">
+
+            <span>
+              <i class="bi bi-plus "></i>
+              <i class="bi bi-folder2 foldericons"></i> {{nttermsChild.formated_name}} </span>
+          </li>
+        </ul>
+
+      </li>
+
+    </ul>
+  </div>
+</div>
