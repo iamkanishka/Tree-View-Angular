@@ -26,27 +26,13 @@ export class AppComponent {
 termsOpenClose(parentIndex:number, termtype) {
 
   if(termtype=='BT'){
-
-
     this.treeData[parentIndex].state.$termsrelation.$BT = !  this.treeData[parentIndex].state.$termsrelation.$BT
 
   }else if(termtype=='NT'){
-
     this.treeData[parentIndex].state.$termsrelation.$NT = !this.treeData[parentIndex].state.$termsrelation.$NT
 
   }
-
-  
 }
-
-
-add(data:any) {
-    var post = data.nodes.length + 1;
-    var newName = data.name + '-' + post;
-    data.nodes.push({name: newName,nodes: []});
-
-    
-};
 
 
 getTreeData(){
