@@ -19,6 +19,11 @@ export class AppComponent {
   }
 
  initialOpenClose(treeIndex:number) {
+   if(this.treeData[treeIndex].state.$initial){
+   this.treeData[treeIndex].state.$termsrelation.$BT =false
+   this.treeData[treeIndex].state.$termsrelation.$NT =false
+
+   }
   this.treeData[treeIndex].state.$initial = !this.treeData[treeIndex].state.$initial
 }
 
