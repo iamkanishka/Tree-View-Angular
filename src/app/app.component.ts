@@ -31,6 +31,7 @@ export class AppComponent {
 termsOpenClose(parentIndex:number, termtype) {
 
   if(termtype=='BT'){
+    
     this.treeData[parentIndex].state.$termsrelation.$BT = !  this.treeData[parentIndex].state.$termsrelation.$BT
 
   }else if(termtype=='NT'){
